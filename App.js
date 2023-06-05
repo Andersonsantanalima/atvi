@@ -3,10 +3,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Entypo, FontAwesome5, AntDesign  } from '@expo/vector-icons';
 
-import TelaInicial from './componentes/TelaInicial/';
-import TelaCatalogo from './componentes/TelaCatalogo';
-import TelaContato from "./componentes/TelaContato";
-import { color } from "react-native-reanimated";
+import TelaInicial from './componets/TelaInicial';
+import TelaCatalogo from './componets/TelaCatalogo';
+import TelaContato from "./componets/TelaContato";
+
 
 const Aba = createBottomTabNavigator();
 
