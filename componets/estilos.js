@@ -1,22 +1,23 @@
 import { StyleSheet } from "react-native-web";
 
-const estilo = StyleSheet.create({
+
+const estilos = StyleSheet.create({
     container: {
         flex:1,
         justifyContent:'center',
         alignItems: 'center',
-        padding :20
+        padding :20,
     },
     titulo:{
-        color: '#fff',
+        color: 'rgba(255,14 ,20, 0.6)',
         fontSize: 36,
         fontWeight: 'bold',
         marginBottom: 10 , 
     },
     subtitulo:{
-        color: '#fff',
+        color: 'rgba(255,14 ,20, 0.6)',
         fontSize: 18 ,
-        textAlign: 'center'
+        textAlign: 'center', 
     },
 });
 

@@ -5,53 +5,64 @@ import { Entypo, FontAwesome5, AntDesign  } from '@expo/vector-icons';
 
 import TelaInicial from './componets/TelaInicial';
 import TelaCatalogo from './componets/TelaCatalogo';
-import TelaContato from "./componets/TelaContato";
+import TelaContato from './componets/TelaContato';
 
+const Abas = createBottomTabNavigator();
 
-const Aba = createBottomTabNavigator();
-
-export default function App() {
+export default function App () {
   return (
-    <NavigationContainer>
-      <Aba.Navigator
-      screenOptions={{
+    <NavigationContainer >
+      <Abas.Navigator screenOptions={{
         headerStyle:{
-          backgroundColor:'#400303'
+          backgroundColor: '#400303'
         },
-        headerTitleStyle:{
-         color: 'red',
-         fontWeight:14
+        headerTitleStyle: {
+          color: '#fff',
+          fontWeight: 'bold'
         },
-        // headerTitleAlignntColor:''
-        tabBarStyle:{
-        backgroundColor:'#fff'
+        headerTitleAlign: 'center',
+
+        tabBarStyle: {
+          backgroundColor: "#fff"
         },
         tabBarLabelStyle:{
-          fontSize:14,
-          fontWeight:'bold'
+          fontSize: 14,
+          fontWeight: "bold"
         },
-        tabBarActiveTintColor:'#fff'
-        
-      }}
-      >
-      <Aba.Screen  name="Inicio"    component={TelaInicial} 
-      options={{
-        tabBarIcon:({color})=>(<Entypo name="home" color={color} size={20} />)
-      }}/>
+        tabBarActiveTintColor: '#fff',
+        tabBarInactiveTintColor: "#ab887c",
+        tabBarActiveBackgroundColor: "#400303",
+      }}>
+        <Abas.Screen
+          name="Início"
+          component = { TelaInicial }
+          options={{
+            tabBarIcon: ({ color }) => (
+              <Entypo name="home" color={ color } size={ 20 } />
+            ),
+          }}
+        />
 
-      <Aba.Screen  name="Catalogo"  component={TelaCatalogo} 
-           options={{
-        tabBarIcon:({color})=>(<FontAwesome5 name="wine-bottle" color={color} size={20} />)
-      }}/>
+        <Abas.Screen
+          name="Catálogo"
+          component = { TelaCatalogo }
+          options={{
+            tabBarIcon: ({ color }) => (
+              <FontAwesome5 name="wine-bottle"  color={ color } size={ 20 }/>
+            ),
+          }}
+        />
 
-      <Aba.Screen  name="Contato"   component={TelaContato}  
-           options={{
-        tabBarIcon:({color})=>(<AntDesign name="contacts" color={color} size={20} />)
-      }}/>
-      </Aba.Navigator>
+        <Abas.Screen
+          name="Contato"
+          component = { TelaContato }
+          options={{
+            tabBarIcon: ({ color }) => (
+              <AntDesign name="contacts" color={ color } size={ 20 }/>
+            ),
+          }}
+        />
+      </Abas.Navigator>
     </NavigationContainer>
-  );
+  )
 }
-
-
- 

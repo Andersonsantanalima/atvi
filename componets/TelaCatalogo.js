@@ -1,7 +1,7 @@
 
-import {View, ScrollView, FlatList} from 'react-native';
+import {View,Text ,ScrollView, FlatList} from 'react-native';
 import Card from './Card';
-import estilos from './estilo';
+import estilos from './estilos';
 
 export default function TelaCatalogo(props) {
   const produtos = [
@@ -23,18 +23,13 @@ export default function TelaCatalogo(props) {
       tipo: "Portada Winemaker's",
       descricao: "Vinho encorpado, saboroso e frutado, com final levemente adocicado. Sua cor é vermelho-rubi.Perfeito com queijo parmesão e carnes assadas ou grelhadas."
     },
-    {
-      id:"4",
-      imagem: require("../assets/Tenis/Adidas/10.png"),
-      tipo: "Elvio Cogno Ravera Barolo",
-      descricao: "Vinho estruturado, com sabor de cereja vermelha madura, framboesa, notas de tabaco e taninos aveludados. Sua cor é vermelho granada e é perfeito com carnes vermelhas e molhos encorpados."
-    }
+ 
   ];
  
   return (
     
     <ScrollView>
-      <View style={estilos.container2}>
+      <View style={estilos.container}>
      <Text style={estilos.titulo}>Nossos vinhos   </Text> 
      <Text style={estilos.subtitulo} >Trabalhamos com o melhor vinho dos seguintes tipos: Vinho branco, vinho rosé, vinho tinto e vinho seco.</Text>
 

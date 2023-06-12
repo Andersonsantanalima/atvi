@@ -2,7 +2,7 @@ import { ImageBackground, Text } from "react-native";
 import { StyleSheet} from 'react-native';
 
 
-const CardTenis = ({props, produto})=>{
+const Card = ({props, produto})=>{
     return(
         <ImageBackground                                 
             style={estilo.produto}
