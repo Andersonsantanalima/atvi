@@ -7,6 +7,7 @@ const estilos = StyleSheet.create({
         justifyContent:'center',
         alignItems: 'center',
         padding :20,
+        backgroundColor:'black',
     },
     titulo:{
         color: 'rgba(255,14 ,20, 0.6)',
@@ -19,6 +20,9 @@ const estilos = StyleSheet.create({
         fontSize: 18 ,
         textAlign: 'center', 
     },
+
+
 });
 
 export default estilos;
+

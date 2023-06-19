@@ -1,5 +1,4 @@
 import {View, Text, ScrollView, FlatList} from 'react-native';
-import Card from './Card';
 import estilos from './estilos';
 import { FontAwesome5, Entypo  } from '@expo/vector-icons'; 
 
@@ -42,20 +41,14 @@ export default function TelaContato(props) {
  
   return (
     
-    <ScrollView>
-      <View style={estilos.container}>
-        <FlatList               
-          data={contatos}
-          renderItem={({item})=>
-            <CardContato
-                tipo = {item.tipo}
-                icone = {item.icone}
-                descricao = {item.descricao}
-            />
-          }
-          keyExtractor={item => item.id}          
-        />        
-      </View>
-    </ScrollView>
+<View style={estilos.container}>
+
+  <View style={estilos.contato}>
+  <FontAwesome5 name="phone-alt" size={24} color="black" />
+  <Text style={estilos.titulo }>Endereço</Text>
+  </View>
+
+
+</View>
   );
 }
