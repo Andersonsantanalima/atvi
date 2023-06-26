@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, ImageBackground } from "react-native";
 
-import imgCapa from '../assets/capa.jpg';
+import imgCapa from '../assets/img_vinho/capa.jpg';
 import estilos from "./estilos";
 
 export default function TelaInicial(){

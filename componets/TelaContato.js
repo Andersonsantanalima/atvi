@@ -46,6 +46,7 @@ export default function TelaContato(props) {
   <View style={estilos.contato}>
   <FontAwesome5 name="phone-alt" size={24} color="black" />
   <Text style={estilos.titulo }>Endereço</Text>
+  <Text style={estilos.subtitulo} >Av. 123, 222 - Rio de Janeiro RJ </Text>
   </View>
 
 

@@ -6,15 +6,21 @@ import { Entypo, FontAwesome5, AntDesign  } from '@expo/vector-icons';
 import TelaInicial from './componets/TelaInicial';
 import TelaCatalogo from './componets/TelaCatalogo';
 import TelaContato from './componets/TelaContato';
+import Detalhes from './componets/Detalhes';
 
 const Abas = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
-export default function App () {
+
+
+function MyTabs () {
   return (
     <NavigationContainer >
-      <Abas.Navigator screenOptions={{
+      <Tab.Navigator initialRouteName="Tabs"
+      screenOptions={{
+        headerShown: false,
         headerStyle:{
-          backgroundColor: '#400303'
+          backgroundColor: '#400303'  
         },
         headerTitleStyle: {
           color: '#fff',
@@ -33,7 +39,7 @@ export default function App () {
         tabBarInactiveTintColor: "#ab887c",
         tabBarActiveBackgroundColor: "#400303",
       }}>
-        <Abas.Screen
+        <Tab.Screen
           name="Início"
           component = { TelaInicial }
           options={{
@@ -43,7 +49,7 @@ export default function App () {
           }}
         />
 
-        <Abas.Screen
+        <Tab.Screen
           name="Catálogo"
           component = { TelaCatalogo }
           options={{
@@ -53,7 +59,7 @@ export default function App () {
           }}
         />
 
-        <Abas.Screen
+        <Tab.Screen
           name="Contato"
           component = { TelaContato }
           options={{
@@ -62,7 +68,24 @@ export default function App () {
             ),
           }}
         />
-      </Abas.Navigator>
+
+        <Tab.Screen name="Tabs" component={MyTabs} />
+				<Tab.Screen name="Detalhes" component={Detalhes} />
+      </Tab.Navigator>
+      
     </NavigationContainer>
   )
+}
+export default function App() {
+	return (
+    <NavigationContainer>
+
+		<Abas.Navigator initialRouteName="Tabs"
+      screenOptions={{
+        headerShown: false}}>
+			<Abas.Screen name="Home" component={ MyTabs } />
+			<Abas.Screen name="VInhos" component={  TelaCatalogo} />
+		</Abas.Navigator>
+    </NavigationContainer>
+	);
 }

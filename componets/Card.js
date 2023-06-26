@@ -3,16 +3,17 @@ import { StyleSheet} from 'react-native';
 
 
 const Card = ({props, produto})=>{
+    const irParaDetalhes = () => { props.navigation.navigate("Detalhes",produto); };
     return(
         <ImageBackground                                 
             style={estilo.produto}
-            source={produto.imagem}
+            source={require(`../assets/img_vinho/${img}`)}
             borderRadius={10}
             resizeMode="cover"
-            onTouchEnd={() => {props.navigation.navigate('Detalhes',produto)}}  
+            onTouchEnd={irParaDetalhes}  
         >
             <Text style={estilo.titulo}>{produto.tipo}</Text>
-            <Text style={estilo.titulo}>{produto.descricao}</Text>
+
         </ImageBackground>
     );
 }
