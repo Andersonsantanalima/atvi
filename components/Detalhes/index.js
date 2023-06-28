@@ -3,8 +3,8 @@ import {View, Text, Image, ScrollView} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Detalhes(props) {
-  let produtos  = props.route.params;
-  console.log(produtos);
+  let vinho  = props.route.params;
+  console.log(vinho);
   const voltar = () => { props.navigation.goBack(); };
   return (
     <View style={estilo.container}>
@@ -14,21 +14,23 @@ export default function Detalhes(props) {
           Detalhes
         </Text>
       </View>
+
+
       <View style={estilo.body}>
           <View style={estilo.slides}>
             <ScrollView horizontal={true}>
               {              
-                pro.fotos.map(foto=>(
-                  <Image style={estilo.foto} source={require(`../../assets/img_vinho/${imagem}`)} />)
+                vinho.fotos.map(foto=>(
+                  <Image style={estilo.foto} source={require(`../../assets/img_vinhos/${foto}`)} />)
                 )
               }
             </ScrollView>
           </View>
+          
           <View style={estilo.info}>
-            <Text style={estilo.titulo}> {produtos.modelo}</Text>
-            <Text style={estilo.valor}> {produtos.preco}</Text>
-            <Text style={estilo.valor}> {veiculo.ano}</Text>
-
+            <Text style={estilo.titulo}>{vinho.nome} {vinho.nome}</Text>
+            <Text style={estilo.descricao}>{`Descrição ${vinho.descricao}`}</Text>
+            <Text style={estilo.titulo}>{`Preço ${vinho.preco}`}</Text>
           </View>
       </View>
     </View>

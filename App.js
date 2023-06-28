@@ -1,91 +1,84 @@
-import React from "react";
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import * as React from 'react';
+import { Text, View, Button } from 'react-native';
+import { NavigationContainer, useRoute  } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Entypo, FontAwesome5, AntDesign  } from '@expo/vector-icons';
 
-import TelaInicial from './componets/TelaInicial';
-import TelaCatalogo from './componets/TelaCatalogo';
-import TelaContato from './componets/TelaContato';
-import Detalhes from './componets/Detalhes';
+import Home from './components/Home';
+import Catalogo from './components/Catalogo';
+import Detalhes from './components/Detalhes';
+import Contato from './components/Contato'
 
-const Abas = createBottomTabNavigator();
+
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
-
-
-function MyTabs () {
-  return (
-    <NavigationContainer >
-      <Tab.Navigator initialRouteName="Tabs"
-      screenOptions={{
-        headerShown: false,
-        headerStyle:{
-          backgroundColor: '#400303'  
-        },
-        headerTitleStyle: {
-          color: '#fff',
-          fontWeight: 'bold'
-        },
-        headerTitleAlign: 'center',
-
-        tabBarStyle: {
-          backgroundColor: "#fff"
-        },
-        tabBarLabelStyle:{
-          fontSize: 14,
-          fontWeight: "bold"
-        },
-        tabBarActiveTintColor: '#fff',
-        tabBarInactiveTintColor: "#ab887c",
-        tabBarActiveBackgroundColor: "#400303",
-      }}>
-        <Tab.Screen
-          name="Início"
-          component = { TelaInicial }
-          options={{
-            tabBarIcon: ({ color }) => (
-              <Entypo name="home" color={ color } size={ 20 } />
-            ),
-          }}
-        />
-
-        <Tab.Screen
-          name="Catálogo"
-          component = { TelaCatalogo }
-          options={{
-            tabBarIcon: ({ color }) => (
-              <FontAwesome5 name="wine-bottle"  color={ color } size={ 20 }/>
-            ),
-          }}
-        />
-
-        <Tab.Screen
-          name="Contato"
-          component = { TelaContato }
-          options={{
-            tabBarIcon: ({ color }) => (
-              <AntDesign name="contacts" color={ color } size={ 20 }/>
-            ),
-          }}
-        />
-
-        <Tab.Screen name="Tabs" component={MyTabs} />
-				<Tab.Screen name="Detalhes" component={Detalhes} />
-      </Tab.Navigator>
-      
-    </NavigationContainer>
-  )
-}
-export default function App() {
+function MyTabs() {
 	return (
-    <NavigationContainer>
+		<Tab.Navigator screenOptions={{
+			headerStyle:{
+				backgroundColor: '#400303'
+			  },
+			  headerTitleStyle: {
+				color: '#fff',
+				fontWeight: 'bold'
+			  },
+			  headerTitleAlign: 'center',
+	  
+			  tabBarStyle: {
+				backgroundColor: "#fff"
+			  },
+			  tabBarLabelStyle:{
+				fontSize: 14,
+				fontWeight: "bold"
+			  },
+			  tabBarActiveTintColor: '#fff',
+			  tabBarInactiveTintColor: "#ab887c",
+			  tabBarActiveBackgroundColor: "#400303",
+		}}>
+			<Tab.Screen name="Home" 
+			component={ Home } 
+			options={{
+				tabBarIcon: ({ color }) => (
+				  <Entypo name="home" color={ color } size={ 20 } />
+				),
+			}}/>
 
-		<Abas.Navigator initialRouteName="Tabs"
-      screenOptions={{
-        headerShown: false}}>
-			<Abas.Screen name="Home" component={ MyTabs } />
-			<Abas.Screen name="VInhos" component={  TelaCatalogo} />
-		</Abas.Navigator>
-    </NavigationContainer>
+			<Tab.Screen name="Catálogo" 
+			component={ Catalogo } 
+			options={{
+				tabBarIcon: ({ color }) => (
+				  <FontAwesome5 name="wine-bottle"  color={ color } size={ 20 }/>
+				),
+			  }}
+			/>
+
+			<Tab.Screen name="Contatos" 
+			component={ Contato } 
+			options={{
+				tabBarIcon: ({ color }) => (
+				  <AntDesign name="contacts" color={ color } size={ 20 }/>
+				),
+			  }}
+			/>
+		</Tab.Navigator>
+	);
+}
+
+
+
+export default function App() {  
+	return (    
+		<NavigationContainer>
+			<Stack.Navigator initialRouteName="Tabs"        
+        	screenOptions={{
+				headerShown: false
+			}}
+      	>
+				<Stack.Screen name="Tabs" component={MyTabs} />
+				<Stack.Screen name="Detalhes" component={ Detalhes } />
+			</Stack.Navigator>
+		</NavigationContainer>
 	);
 }

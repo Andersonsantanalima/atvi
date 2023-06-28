@@ -2,7 +2,7 @@ import { StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
     },
     head:{
         paddingVertical: 19,
@@ -25,17 +25,27 @@ const styles = StyleSheet.create({
     },
     slides:{
        flexDirection: 'row',
-       width: 400,
-       height: 300
+       width: 370,
+       height: 350,
     },
     foto:{
         width: 450,
         height: 320,
+        resizeMode: 'contain',
+        backgroundColor: '#400303'
     },
     info:{
         width: 350,
-        textAlign: 'left'
+        textAlign: 'center'
     },
+    titulo:{
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+    descricao:{
+        fontSize: 17,
+        fontWeight: 'normal'
+    }
 });
 
 export default styles;
